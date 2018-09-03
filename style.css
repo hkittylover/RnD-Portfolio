@@ -14,6 +14,11 @@ body {
   text-align: center;
 }
 
+.App-header {
+	background: url('images/intro-bg-yellow.jpg');
+	background-size: cover;
+}
+
 .App-skeleton {
   background-color: #000;
   height: 100%;
@@ -81,7 +86,7 @@ body {
 
 .button-download {
   border-radius:5px;
-  width: 200px;
+  width: 250px;
 }
 
 .button-download-container {
@@ -135,13 +140,20 @@ i {
 }
 
 .user-1 {
-	background-color: #2f284f;
+	//background-color: #2f284f;
 	color: #fff;
 }
 
 .user-2 {
-	background-color: #e71d36;
+	//background-color: #e71d36;
 	color: #fff;
+}
+
+/*** About Section ***/
+
+.App-about {
+	background: url('images/about-bg-yellow.jpg');
+	background-size: cover;
 }
 
 .about-header {
@@ -154,8 +166,32 @@ i {
 
 .about-text {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 18px;
+	font-size: 20px;
 	text-align: left;
-	text-indent: 50px;
-	padding: 0px 25px;
+	//text-indent: 50px;
+	padding: 0px 30px;
+	margin-top: 60px;
+	margin-left: 85px;
+	height: 60px;
+	width: 420px;
+	//border: 1px solid #000;
+}
+
+.column .about-text:nth-child(1) {
+	margin-top: 105px;
+}
+
+.about-text span {
+	font-weight: bold;
+}
+
+.skills {
+	border: none;
+}
+
+/*** Projects Section ***/
+
+.App-projects {
+	background: url('images/projects-bg.jpg');
+	background-size: cover;
 }
