@@ -5,26 +5,25 @@
 		@import url('https://fonts.googleapis.com/css?family=Rubik');
 		@import url('https://fonts.googleapis.com/css?family=Montserrat');
 		@import url('https://fonts.googleapis.com/css?family=Oxygen');
+		@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 	body {
-	  background-color: #f3f3f3;
+	  /* background-color: #f3f3f3; */
 	  margin: 0;
 	  padding: 0;
 	  font-family: sans-serif;
-	  font-size: 16px;
+		font-size: 16px;
+		width: 100%;
+		height: 100%;
+		min-width: 800px;
+		overflow-y:scroll;
 	}
 
 	.App {
-	  text-align: center;
-	}
-
-	.App-header {
-	  background-color: #000;
-	  /* height: 450px; */
-	  /*padding: 20px;*/
-	  /* padding-top: 50px; */
-	  color: white;
-		display: flex;
+		text-align: center;
+		color: white;
+		
 	}
 
 	.App-title {
@@ -64,22 +63,22 @@
 
 	.button {
 	  font-family: 'Rubik', sans-serif;
-	  color: #fff;
-	  background-color: #000;
-	  border: 1px solid #ffffff;
+	  color: #FCFFBF;
+	  /* background-color: #000; */
+	  border: 1px solid #cecece;
 	  padding: 10px 10px 8px;
 	  text-decoration: none;
 	  transition-duration: 0.5s;
 	}
 
 	.button:hover {
-	  background-color: #ffffff;
+	  background-color: #FCFFBF;
 	  border: 1px solid #cecece;
 	  color: #000000;
 	  transition-duration: 0.5s;
 	}
 
-	.user-2 .button {
+	/* .user-2 .button {
 	  font-family: 'Rubik', sans-serif;
 	  color: #000;
 	  background-color: #f3f3f3;
@@ -93,9 +92,9 @@
 	  border: 1px solid #000;
 	  color: #fff;
 	  transition-duration: 0.5s;
-	}
+	} */
 
-	.button-download {
+	/* .button-download {
 	  border-radius:5px;
 	  width: 200px;
 	}
@@ -104,7 +103,7 @@
 	  text-align: right;
 	  width: inherit;
 	  padding: 30px;
-	}
+	} */
 
 	.button-account {
 	  border-radius: 100%;
@@ -128,11 +127,14 @@
 		border-radius: 50%;
 		height: 200px;
 		margin-bottom: 20px;
+		box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.19);
 	}
 	#user-name {
-		font-family: 'Montserrat', sans-serif;
-		font-size: 36px;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 42px;
+		color: #FCFFBF;
 	}
+	
 	i {
 		font-size: 20px;
 	}
@@ -142,54 +144,254 @@
 	}
 
 	.column {
-		padding: 50px 20px;
 		/* padding-top: 50px; */
 		flex: 50%;
 	}
 
-	.user-1 {
-		background-color: #000;
+	.profile {
+		padding: 50px 20px;
+	}
+
+	/* .user-1 {
+		
 		color: #fff;
 	}
 
 	.user-2 {
-		background-color: #f3f3f3;
+		
 		color: #000;
+	} */
+
+	.title {
+		color: #FCFFBF;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 72px;
+		padding: 10px;
+		font-weight: 800;
 	}
 
+	.section {
+		padding: 15px 0px;
+	}
+
+	.section-name {
+		color: #FCFFBF;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 36px;
+		font-weight: 600;
+		padding: 10px;
+		font-style: italic;
+	}
+
+	.section-answer {
+		padding:10px 30px;
+		font-family: 'Roboto', sans-serif;
+		font-size: 20px;
+	}
+
+	.background {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		position: fixed;
+		z-index: -1;
+		min-width: 800px;
+	}
+
+	.bg-column {
+		flex: 50%;
+	}
+
+	.bg-column.user-1 {
+		background-color: #26A5DC;
+	}
+
+	.bg-column.user-2 {
+		background-color: #F1646C;
+	}
+	.page {
+		min-height: 100%;
+		padding: 20px 0px;
+	}
+	hr {
+		width: 90%;
+		border-style: inset;
+		/* border-width: 1px; */
+	}
+
+	.project-list {
+		display:inline-block;
+		padding: 20px;
+		overflow: hidden;
+	}
+
+	.project-card {
+		height: 275px;
+		width: 350px;
+		display:inline-block;
+		background-color: whitesmoke;
+		border: 2px solid whitesmoke;
+		margin: 20px;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+
+	.project-card:hover {
+		box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.1), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+		transition-duration:0.5s;
+		transition-property:all;
+		transition-timing-function: ease;
+	}
+
+	.project-image {
+		height: 200px;
+		width: auto;
+		box-shadow: 0px 2	px 5px 0px rgba(0, 0, 0, 0.19);
+		background-color: darkgrey;
+		background-image: url('images/image-404.png');
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+
+	.project-title {
+		color: #000000;
+		padding: 20px;
+		font-size: 20px;
+		font-family: 'Open Sans', sans-serif;
+		text-align: left;
+		overflow: hidden;
+		font-weight: 600;		
+	}
+
+	.project-name:hover {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+	.skill {
+		font-size: 36px;
+		margin: 5px;
+	}
 	</style>
 </head>
 
 <body>
+	<div class="background">
+		<div class="bg-column user-1"></div>
+		<div class="bg-column user-2"></div>
+	</div>
 	<div class="App">
-      <header class="App-header">
-				<!-- <div class="row"> -->
-					<div class="column user-1">
-							<img src="default-user.png" id="user-photo" alt="logo" />
-							<div id="user-name"><b>KRIZIA LYNN T. CHIU</b></div>
-							<div class="button-accounts-container">
-								<!-- <div class="button-account-container"> -->
-									<a class="button button-account" href="#"><i class="far fa-envelope"></i></a>
-									<a class="button button-account" href="#"><i class="fab fa-github"></i></a>
-									<a class="button button-account" href="#"><i class="fab fa-linkedin-in"></i></a>
-								<!-- </div> -->
+		<div class="page intro-page">
+			<div class="title">
+				Hello! We are...
+			</div>
+			<div class="row">
+					<div class="column user-1 profile">
+						<img src="images/default-user.png" id="user-photo" alt="logo" />
+						<div id="user-name">
+							<b>KRIZIA LYNN T. CHIU</b><br>
+							<i>Associate Vice President for Research and Development</i>
+						</div>
+						<div class="button-accounts-container">
+							<a class="button button-account" href="#"><i class="far fa-envelope"></i></a>
+							<a class="button button-account" href="#"><i class="fab fa-github"></i></a>
+							<a class="button button-account" href="#"><i class="fab fa-linkedin-in"></i></a>
+						</div>
+					</div>
+					<div class="column user-2 profile">
+						<img src="images/default-user.png" id="user-photo" alt="logo" />
+						<div id="user-name">
+							<b>TROY MICHAEL S. MIRAFUENTES</b><br>
+							<i>Committee Trainee for Research and Development</i>
+						</div>
+						<div class="button-accounts-container">
+							<a class="button button-account user-2" href="#"><i class="far fa-envelope"></i></a>
+							<a class="button button-account user-2" href="#"><i class="fab fa-github"></i></a>
+							<a class="button button-account user-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+			
+			<div class="page about-page">
+				<div class="title">About</div>
+				<div class="section">
+					<div class="section-name">Me</div>
+					<div class="row">
+						<div class="column section-answer">
+							I am Krizia, and Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</div>
+						<div class="column section-answer">
+							I am Troy, and Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</div>
+					</div>
+				</div>
+				<div class="section">
+					<div class="section-name">My RnD Objective</div>
+					<div class="row">
+						<div class="column section-answer">
+							To achieve bla blah
+						</div>
+						<div class="column section-answer">
+							to do this and that
+						</div>
+					</div>
+				</div>
+				<div class="section">
+					<div class="section-name">My Technical Skills</div>
+					<div class="row">
+						<div class="column section-answer">
+							<i class="fab fa-html5 skill" title="HTML5"></i>
+							<i class="fab fa-html5 skill" title="HTML5"></i>
+							<i class="fab fa-html5 skill" title="HTML5"></i>
+						</div>
+						<div class="column section-answer">
+							<i class="fab fa-html5 skill" title="HTML5"></i>
+							<i class="fab fa-html5 skill" title="HTML5"></i>
+							<i class="fab fa-html5 skill" title="HTML5"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<hr>
+
+			<div class="page project-page">
+					<div class="title">Projects</div>
+					<div class="row">
+							<div class="column project-list">
+								<div class="project-card">
+									<div class="project-image"></div>
+									<div class="project-title"><span class="project-name">WEBAPDE Projects</span></div>
+								</div>
+								<div class="project-card">
+									<div class="project-image"></div>
+									<div class="project-title"><span class="project-name">WEBAPDE Projects</span></div>
+								</div>
+								<div class="project-card">
+									<div class="project-image"></div>
+									<div class="project-title"><span class="project-name">WEBAPDE Projects</span></div>
+								</div>
+							</div>
+							<div class="column project-list">
+									<div class="project-card">
+										<div class="project-image"></div>
+										<div class="project-title"><span class="project-name">WEBAPDE Projects</span></div>
+									</div>
+									<div class="project-card">
+										<div class="project-image"></div>
+										<div class="project-title"><span class="project-name">WEBAPDE Projects</span></div>
+									</div>
+									<div class="project-card">
+										<div class="project-image"></div>
+										<div class="project-title"><span class="project-name">WEBAPDE Projects</span></div>
+									</div>
 							</div>
 					</div>
-					<div class="column user-2">
-							<img src="default-user.png" id="user-photo" alt="logo" />
-							<div id="user-name"><b>TROY MICHAEL S. MIRAFUENTES</b></div>
-							<div class="button-accounts-container">
-								<!-- <div class="button-account-container"> -->
-									<a class="button button-account user-2" href="#"><i class="far fa-envelope"></i></a>
-									<a class="button button-account user-2" href="#"><i class="fab fa-github"></i></a>
-									<a class="button button-account user-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-								<!-- </div> -->
-							</div>
-					</div>
-				<!-- </div> -->
-				<!-- <div class="button-download-container"><a class="button button-download" href="#"><i class="fas fa-download"></i> Download Resume</a></div> -->
-				
-			</header>
+					
+					
+			</div>
   </div>
 </body>
 </html>
