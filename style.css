@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    min-width: 800px;
+    overflow-y:scroll;
+}
+
+.App {
+    text-align: center;
+    color: white;
+    
+}
+
+.App-title {
+    font-size: 1.5em;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+.text-input-area {
+    width: 500px;
+    border: 1px solid #cecece;
+    border-radius: 10px;
+    resize: none;
+    padding: 10px;
+}
+
+.text-body {
+    font-family: 'Rubik', sans-serif;
+}
+
+.text-title {
+    margin-bottom: 10px;
+}
+
+.text-container {
+    background-color: #ffffff;
+    padding: 20px;
+    width:40%;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border: 1px solid #cecece;
+}
+
+.button {
+    font-family: 'Rubik', sans-serif;
+    color: #FCFFBF;
+    /* background-color: #000; */
+    border: 1px solid #cecece;
+    padding: 10px 10px 8px;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+
+.button:hover {
+    background-color: #FCFFBF;
+    border: 1px solid #cecece;
+    color: #000000;
+    transition-duration: 0.5s;
+}
+
+.button-account {
+    border-radius: 100%;
+}
+
+.button-account-container {
+    width: inherit;
+    height: auto;
+    padding-bottom: 30px;
+}
+
+.button-accounts-container {
+    text-align: center;
+    padding: 30px;
+}
+
+#user-photo {
+    border-radius: 50%;
+    height: 200px;
+    margin-bottom: 20px;
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.19);
+}
+#user-name {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 42px;
+    color: #FCFFBF;
+}
+
+i {
+    font-size: 20px;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    /* padding-top: 50px; */
+    flex: 50%;
+}
+
+.profile {
+    padding: 50px 20px;
+}
+
+.title {
+    color: #FCFFBF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 72px;
+    padding: 10px;
+    font-weight: 800;
+}
+
+.section {
+    padding: 15px 0px;
+}
+
+.section-name {
+    color: #FCFFBF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    padding: 10px;
+    font-style: italic;
+}
+
+.section-answer {
+    padding:10px 5%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.background {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    z-index: -1;
+    min-width: 800px;
+}
+
+.bg-column {
+    flex: 50%;
+}
+
+.bg-column.user-1 {
+    background-color: #26A5DC;
+}
+
+.bg-column.user-2 {
+    background-color: #F1646C;
+}
+
+.page {
+    min-height: 100%;
+    padding: 20px 0px;
+}
+
+hr {
+    width: 90%;
+    border-style: inset;
+    /* border-width: 1px; */
+}
+
+.project-list {
+    display:inline-block;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.project-card {
+    height: 350px;
+    max-height: 350px;
+    width: 350px;
+    display:inline-block;
+    background-color: whitesmoke;
+    border: 2px solid whitesmoke;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+
+.project-card:hover {
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.1), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+    transition-duration:0.5s;
+    transition-property:all;
+    transition-timing-function: ease;
+}
+
+.project-image {
+    height: 200px;
+    width: auto;
+    box-shadow: 0px 2	px 5px 0px rgba(0, 0, 0, 0.19);
+    background-color: darkgrey;
+    background-image: url('images/image-404.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+}
+
+.project-info {
+    padding: 15px 20px;
+    color: #000000;
+    text-align: left;
+    position: relative;
+}
+
+.project-link {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.project-lang {
+    padding: 10px 20px;
+    position: absolute;
+    color: #000000;
+    text-align: left;
+    bottom: 0px;
+}
+
+.project-title {
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 15px; 
+}
+
+.skill {
+    font-size: 36px;
+    margin: 5px;
+}
+
+.lang {
+    font-size: 18px;
+    margin: 5px;
+}
+
+.project-role {
+    font-style: italic;
+}
+
+.project-des {
+    margin-top: 10px;
+    font-size: 14px;
+    overflow: auto;
+    overflow-x: hidden;
+    max-height: 100%;
+}

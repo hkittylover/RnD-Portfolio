@@ -1,195 +1,234 @@
 <html>
 <head>
+	<title>LSCS RnD Portfolio</title>
+	<script src="jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-	<style type="text/css">
-		@import url('https://fonts.googleapis.com/css?family=Rubik');
-		@import url('https://fonts.googleapis.com/css?family=Montserrat');
-		@import url('https://fonts.googleapis.com/css?family=Oxygen');
+	<link rel="stylesheet" href="style.css">
+	<script>
+		$(document).ready(function(){
+			var lang = {
+				html : "<i class='fab fa-html5 lang' title='HTML5'></i>",
+				css : "<i class='fab fa-css3 lang' title='CSS3'></i>",
+				js: "<i class='fab fa-js lang' title='Javascript'></i>",
+				node: "<i class='fab fa-node-js lang' title='NodeJS'></i>",
+				java: "<i class='fab fa-java lang' title='Java'></i>",
+				python: "<i class='fab fa-python lang' title='Python'></i>",
+				android: "<i class='fab fa-android lang' title='Android'></i>",
+			}
 
-	body {
-	  background-color: #f3f3f3;
-	  margin: 0;
-	  padding: 0;
-	  font-family: sans-serif;
-	  font-size: 16px;
-	}
+			var krizia = [
+				{
+					title: 'WEBAPDE Project',
+					role: 'Backend Developer',
+					des: 'This is a mini image sharing website.',
+					lang: [
+						'html',
+						'css'
+					],
+					img: 'images/default-user.png',
+					link: "#"
+				}, 
+				{
+					title: 'MOBAPDE Project',
+					role: 'Backend Developer',
+					des: 'This is Picnic Panic.',
+					lang: [
+						'android'
+					],
+					img: null,
+					link: null
+				}
+			]
 
-	.App {
-	  text-align: center;
-	}
+			var troy = [
+				{
+					title: 'Mobap Project',
+					role: 'Backend Developer',
+					des: 'This is a mini image sharing website.',
+					lang: [
+						'html',
+						'css'
+					],
+					img: 'images/default-user.png',
+					link: "#"
+				}, 
+				{
+					title: 'Webap Project',
+					role: 'Backend Developer',
+					des: 'This is Picnic Panic.',
+					lang: [
+						'android',
+					],
+					img: null,
+					link: null
+				}
+			]
+			console.log(lang['html']);
+			for(var i in krizia) {
+				var card = createCard(krizia[i], lang);
+				$('.project-list.user-1').append(card);
+			}
+			for(var i in troy) {
+				var card = createCard(troy[i], lang);
+				$('.project-list.user-2').append(card);
+			}
+			
+			function createCard(proj, langs) {
+				var card = document.createElement("div");
+				card.className = "project-card";
+				var lang = document.createElement("div");
+				lang.className = "project-lang";
+				var langList = "";
+				for(var i in proj.lang) {
+					langList = langList + langs[proj.lang[i]];
+				}
+				lang.innerHTML = langList;
+				card.appendChild(lang);
+				
+				var img = document.createElement("div");
+				img.className = "project-image";
+				if(proj.img != null) {
+					img.style = "background-image : url('" + proj.img + "')";
+				}
+				
+				card.appendChild(img);
+				var info = document.createElement("div");
+				info.className = "project-info";
+				if(proj.link != null) {
+					var link = document.createElement("div");
+					link.className = "project-link";
+					link.innerHTML = "<a target=\"_blank\" href=\"" + proj.link + "\"><i class=\"fas fa-external-link-alt\"></i></a>";
+					info.appendChild(link);
+				}
+				var title = document.createElement("div");
+				title.className = "project-title";
+				title.innerHTML = proj.title;
+				info.appendChild(title);
 
-	.App-header {
-	  background-color: #000;
-	  /* height: 450px; */
-	  /*padding: 20px;*/
-	  /* padding-top: 50px; */
-	  color: white;
-		display: flex;
-	}
+				var role = document.createElement("div");
+				role.className = "project-role";
+				role.innerHTML = proj.role;
+				info.appendChild(role);
 
-	.App-title {
-	  font-size: 1.5em;
-	}
-
-	.App-intro {
-	  font-size: large;
-	}
-
-	.text-input-area {
-	  width: 500px;
-	  border: 1px solid #cecece;
-	  border-radius: 10px;
-	  resize: none;
-	  padding: 10px;
-	}
-
-	.text-body {
-	  font-family: 'Rubik', sans-serif;
-	}
-
-	.text-title {
-	  margin-bottom: 10px;
-	}
-
-	.text-container {
-	  background-color: #ffffff;
-	  padding: 20px;
-	  width:40%;
-	  margin-top: 40px;
-	  margin-left: auto;
-	  margin-right: auto;
-	  border-radius: 10px;
-	  border: 1px solid #cecece;
-	}
-
-	.button {
-	  font-family: 'Rubik', sans-serif;
-	  color: #fff;
-	  background-color: #000;
-	  border: 1px solid #ffffff;
-	  padding: 10px 10px 8px;
-	  text-decoration: none;
-	  transition-duration: 0.5s;
-	}
-
-	.button:hover {
-	  background-color: #ffffff;
-	  border: 1px solid #cecece;
-	  color: #000000;
-	  transition-duration: 0.5s;
-	}
-
-	.user-2 .button {
-	  font-family: 'Rubik', sans-serif;
-	  color: #000;
-	  background-color: #f3f3f3;
-	  border: 1px solid #000;
-	  padding: 10px 10px 8px;
-	  text-decoration: none;
-	  transition-duration: 0.5s;
-	}
-	.user-2 .button:hover {
-	  background-color: #000;
-	  border: 1px solid #000;
-	  color: #fff;
-	  transition-duration: 0.5s;
-	}
-
-	.button-download {
-	  border-radius:5px;
-	  width: 200px;
-	}
-
-	.button-download-container {
-	  text-align: right;
-	  width: inherit;
-	  padding: 30px;
-	}
-
-	.button-account {
-	  border-radius: 100%;
-	  /* width: 175px; */
-	}
-
-	.button-account-container {
-	  width: inherit;
-	  height: auto;
-	  padding-bottom: 30px;
-	}
-
-	.button-accounts-container {
-	  text-align: center;
-	  /* width: inherit;
-	  height: auto; */
-	  padding: 30px;
-	}
-
-	#user-photo {
-		border-radius: 50%;
-		height: 200px;
-		margin-bottom: 20px;
-	}
-	#user-name {
-		font-family: 'Montserrat', sans-serif;
-		font-size: 36px;
-	}
-	i {
-		font-size: 20px;
-	}
-
-	.row {
-		display: flex;
-	}
-
-	.column {
-		padding: 50px 20px;
-		/* padding-top: 50px; */
-		flex: 50%;
-	}
-
-	.user-1 {
-		background-color: #000;
-		color: #fff;
-	}
-
-	.user-2 {
-		background-color: #f3f3f3;
-		color: #000;
-	}
-
-	</style>
+				var des = document.createElement("div");
+				des.className = "project-des";
+				des.innerHTML = proj.des;
+				info.appendChild(des);
+				
+				card.appendChild(info);
+				return card;
+			}
+		});
+	</script>
 </head>
 
 <body>
+	<div class="background">
+		<div class="bg-column user-1"></div>
+		<div class="bg-column user-2"></div>
+	</div>
 	<div class="App">
-      <header class="App-header">
-				<!-- <div class="row"> -->
-					<div class="column user-1">
-							<img src="default-user.png" id="user-photo" alt="logo" />
-							<div id="user-name"><b>KRIZIA LYNN T. CHIU</b></div>
-							<div class="button-accounts-container">
-								<!-- <div class="button-account-container"> -->
-									<a class="button button-account" href="#"><i class="far fa-envelope"></i></a>
-									<a class="button button-account" href="#"><i class="fab fa-github"></i></a>
-									<a class="button button-account" href="#"><i class="fab fa-linkedin-in"></i></a>
-								<!-- </div> -->
+		<div class="page intro-page">
+			<div class="title">
+				Hello! We are...
+			</div>
+			<div class="row">
+					<div class="column user-1 profile">
+						<img src="images/krizia.jpg" id="user-photo" alt="logo" />
+						<div id="user-name">
+							<b>KRIZIA LYNN T. CHIU</b><br>
+							<i>Associate Vice President for Research and Development</i>
+						</div>
+						<div class="button-accounts-container">
+							<a title="Email" target="_blank" class="button button-account" href="mailto:krizia_chiu@dlsu.edu.ph"><i class="far fa-envelope"></i></a>
+							<a title="Github" target="_blank" class="button button-account" href="https://github.com/hkittylover"><i class="fab fa-github"></i></a>
+							<a title="LinkedIn" target="_blank" class="button button-account" href="https://linkedin.com/in/krizialynn"><i class="fab fa-linkedin-in"></i></a>
+							<a title="Facebook" target="_blank" class="button button-account" href="https://facebook.com/krizialynn320"><i class="fab fa-facebook"></i></a>
+							<a title="Twitter" target="_blank" class="button button-account" href="https://twitter.com/krizia_lynn"><i class="fab fa-twitter"></i></a>
+						</div>
+					</div>
+					<div class="column user-2 profile">
+						<img src="images/troy-pic.jpg" id="user-photo" alt="logo" />
+						<div id="user-name">
+							<b>TROY MICHAEL S. MIRAFUENTES</b><br>
+							<i>Committee Trainee for Research and Development</i>
+						</div>
+						<div class="button-accounts-container">
+							<a title="Email" target="_blank" class="button button-account user-2" href="mailto:troy_mirafuentes@dlsu.edu.ph"><i class="far fa-envelope"></i></a>
+							<a title="Github" target="_blank" class="button button-account user-2" href="https://github.com/tmirafuentes"><i class="fab fa-github"></i></a>
+							<a title="Facebook" target="_blank" class="button button-account user-2" href="https://facebook.com/tmirafuentes"><i class="fab fa-facebook"></i></a>
+							<a title="Twitter" target="_blank" class="button button-account user-2" href="https://twitter.com/sertroymichaelM"><i class="fab fa-twitter"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+			
+			<div class="page about-page">
+				<div class="title">About</div>
+				<div class="section">
+					<div class="section-name">Me</div>
+					<div class="row">
+						<div class="column section-answer">
+							I am Krizia, an incoming senior studying BS Computer Science specializing in Software Technology. I am very interested in programming which is the reason why I chose it as my future career. Even though I love programming, designing interfaces is not really my forte, thus limiting me into back-end development. I am a crammer, so don't expect me doing my jobs early *wink*.
+						</div>
+						<div class="column section-answer">
+							I am Troy and I am a 3rd Year BS/MS Computer Science student. I am a nerd. I am a fan of many things: football, film and TV, wrestling, math memes, and anything that's fun to learn. I am currently obsessed with Los Ingobernables de Japon, a Japanese wrestling faction that is for everyone. I took Computer Science because it is the most intellectually challenging degree I can take that also interests me. Thank you for reading and please scroll down now.
+						</div>
+					</div>
+				</div>
+				<div class="section">
+					<div class="section-name">My RnD Objective</div>
+					<div class="row">
+						<div class="column section-answer">
+							To be motivated to learn new stuff and to do new applications that would benefit LSCS.
+						</div>
+						<div class="column section-answer">
+							My objective for this committee is to help Jonal achieve his goals and change the university through our skills and available technology.
+						</div>
+					</div>
+				</div>
+				<div class="section">
+					<div class="section-name">My Technical Skills</div>
+					<div class="row">
+						<div class="column section-answer">
+							<i class="fab fa-html5 skill" title="HTML5"></i>
+							<i class="fab fa-css3 skill" title="CSS3"></i>
+							<i class="fab fa-js skill" title="Javascript"></i>
+							<i class="fab fa-node-js skill" title="NodeJS"></i>
+							<i class="fab fa-java skill" title="Java"></i>
+							<i class="fab fa-python skill" title="Python"></i>
+							<i class="fab fa-android skill" title="Android"></i>
+						</div>
+						<div class="column section-answer">
+							<i class="fab fa-html5 skill" title="HTML5"></i>
+							<i class="fab fa-css3 skill" title="CSS3"></i>
+							<i class="fab fa-js skill" title="Javascript"></i>
+							<i class="fab fa-node-js skill" title="NodeJS"></i>
+							<i class="fab fa-java skill" title="Java"></i>
+							<i class="fab fa-python skill" title="Python"></i>
+							<i class="fab fa-android skill" title="Android"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<hr>
+
+			<div class="page project-page">
+					<div class="title">Projects</div>
+					<div class="row">
+							<div class="column project-list user-1">
+								
+							</div>
+							<div class="column project-list user-2">
+									
 							</div>
 					</div>
-					<div class="column user-2">
-							<img src="default-user.png" id="user-photo" alt="logo" />
-							<div id="user-name"><b>TROY MICHAEL S. MIRAFUENTES</b></div>
-							<div class="button-accounts-container">
-								<!-- <div class="button-account-container"> -->
-									<a class="button button-account user-2" href="#"><i class="far fa-envelope"></i></a>
-									<a class="button button-account user-2" href="#"><i class="fab fa-github"></i></a>
-									<a class="button button-account user-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-								<!-- </div> -->
-							</div>
-					</div>
-				<!-- </div> -->
-				<!-- <div class="button-download-container"><a class="button button-download" href="#"><i class="fas fa-download"></i> Download Resume</a></div> -->
-				
-			</header>
+					
+					
+			</div>
   </div>
 </body>
 </html>
