@@ -263,3 +263,10 @@ hr {
     overflow-x: hidden;
     max-height: 100%;
 }
+
+@media only screen and (max-width: 780px) {
+    .page {
+        min-height: unset;
+        padding: 20px 0px;
+    }
+}
