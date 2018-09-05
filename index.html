@@ -1,5 +1,7 @@
 <html>
 <head>
+	<title>LSCS RnD Portfolio</title>
+	<script src="jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Rubik');
@@ -226,7 +228,8 @@
 	}
 
 	.project-card {
-		height: 275px;
+		height: 350px;
+		max-height: 350px;
 		width: 350px;
 		display:inline-block;
 		background-color: whitesmoke;
@@ -234,6 +237,8 @@
 		margin: 20px;
 		border-radius: 10px;
 		overflow: hidden;
+		font-family: 'Roboto', sans-serif;
+		position: relative;
 	}
 
 	.project-card:hover {
@@ -251,27 +256,171 @@
 		background-image: url('images/image-404.png');
 		background-position: center center;
 		background-repeat: no-repeat;
+		
+	}
+	.project-info {
+		padding: 15px 20px;
+		color: #000000;
+		text-align: left;
+		position: relative;
+	}
+
+	.project-link {
+		position: absolute;
+		top: 20px;
+		right: 10px;
+	}
+
+	.project-lang {
+		padding: 10px 20px;
+		position: absolute;
+		color: #000000;
+		text-align: left;
+		bottom: 0px;
 	}
 
 	.project-title {
-		color: #000000;
-		padding: 20px;
 		font-size: 20px;
 		font-family: 'Open Sans', sans-serif;
-		text-align: left;
+		font-weight: 600;
+		white-space: nowrap; 
 		overflow: hidden;
-		font-weight: 600;		
+		text-overflow: ellipsis;
+		padding-right: 15px; 
 	}
 
-	.project-name:hover {
+	/* .project-name:hover {
 		cursor: pointer;
 		text-decoration: underline;
-	}
+	} */
 	.skill {
 		font-size: 36px;
 		margin: 5px;
 	}
+
+	.lang {
+		font-size: 18px;
+		margin: 2px;
+	}
+
+	.project-role {
+		font-style: italic;
+	}
+
+	.project-des {
+		margin-top: 10px;
+		font-size: 14px;
+		overflow: auto;
+		overflow-x: hidden;
+		max-height: 100%;
+	}
+
 	</style>
+	<script>
+		$(document).ready(function(){
+			var krizia = [
+				{
+					title: 'WEBAPDE Project',
+					role: 'Backend Developer',
+					des: 'This is a mini image sharing website.',
+					lang: [
+						'HTML5',
+						'CSS'
+					],
+					img: 'images/default-user.png',
+					link: "#"
+				}, 
+				{
+					title: 'MOBAPDE Project',
+					role: 'Backend Developer',
+					des: 'This is Picnic Panic.',
+					lang: [
+						'HTML5',
+						'CSS'
+					],
+					img: null,
+					link: null
+				}
+			]
+
+			var troy = [
+				{
+					title: 'Mobap Project',
+					role: 'Backend Developer',
+					des: 'This is a mini image sharing website.',
+					lang: [
+						'HTML5',
+						'CSS'
+					],
+					img: 'images/default-user.png',
+					link: "#"
+				}, 
+				{
+					title: 'Webap Project',
+					role: 'Backend Developer',
+					des: 'This is Picnic Panic.',
+					lang: [
+						'HTML5',
+						'CSS'
+					],
+					img: null,
+					link: null
+				}
+			]
+
+			for(var i in krizia) {
+				var card = createCard(krizia[i]);
+				$('.project-list.user-1').append(card);
+			}
+			for(var i in troy) {
+				var card = createCard(troy[i]);
+				$('.project-list.user-2').append(card);
+			}
+
+			function createCard(proj) {
+				var card = document.createElement("div");
+				card.className = "project-card";
+				var lang = document.createElement("div");
+				lang.className = "project-lang";
+				lang.innerHTML = "<i class=\"fab fa-html5 lang\" title=\"HTML5\"></i> \
+					<i class=\"fab fa-css3-alt lang\" title=\"CSS\"></i>";
+				card.appendChild(lang);
+				
+				var img = document.createElement("div");
+				img.className = "project-image";
+				if(proj.img != null) {
+					img.style = "background-image : url('" + proj.img + "')";
+				}
+				
+				card.appendChild(img);
+				var info = document.createElement("div");
+				info.className = "project-info";
+				if(proj.link != null) {
+					var link = document.createElement("div");
+					link.className = "project-link";
+					link.innerHTML = "<a href=\"" + proj.link + "\"><i class=\"fas fa-external-link-alt\"></i></a>";
+					info.appendChild(link);
+				}
+				var title = document.createElement("div");
+				title.className = "project-title";
+				title.innerHTML = proj.title;
+				info.appendChild(title);
+
+				var role = document.createElement("div");
+				role.className = "project-role";
+				role.innerHTML = proj.role;
+				info.appendChild(role);
+
+				var des = document.createElement("div");
+				des.className = "project-des";
+				des.innerHTML = proj.des;
+				info.appendChild(des);
+				
+				card.appendChild(info);
+				return card;
+			}
+		});
+	</script>
 </head>
 
 <body>
@@ -360,33 +509,11 @@
 			<div class="page project-page">
 					<div class="title">Projects</div>
 					<div class="row">
-							<div class="column project-list">
-								<div class="project-card">
-									<div class="project-image"></div>
-									<div class="project-title"><span class="project-name">WEBAPDE Projects</span></div>
-								</div>
-								<div class="project-card">
-									<div class="project-image"></div>
-									<div class="project-title"><span class="project-name">WEBAPDE Projects</span></div>
-								</div>
-								<div class="project-card">
-									<div class="project-image"></div>
-									<div class="project-title"><span class="project-name">WEBAPDE Projects</span></div>
-								</div>
+							<div class="column project-list user-1">
+								
 							</div>
-							<div class="column project-list">
-									<div class="project-card">
-										<div class="project-image"></div>
-										<div class="project-title"><span class="project-name">WEBAPDE Projects</span></div>
-									</div>
-									<div class="project-card">
-										<div class="project-image"></div>
-										<div class="project-title"><span class="project-name">WEBAPDE Projects</span></div>
-									</div>
-									<div class="project-card">
-										<div class="project-image"></div>
-										<div class="project-title"><span class="project-name">WEBAPDE Projects</span></div>
-									</div>
+							<div class="column project-list user-2">
+									
 							</div>
 					</div>
 					
